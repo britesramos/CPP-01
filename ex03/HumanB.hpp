@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   newZombie.cpp                                      :+:    :+:            */
+/*   HumanB.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sramos <sramos@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/02/07 18:39:42 by sramos        #+#    #+#                 */
-/*   Updated: 2025/02/10 14:37:47 by sramos        ########   odam.nl         */
+/*   Created: 2025/02/10 17:47:14 by sramos        #+#    #+#                 */
+/*   Updated: 2025/02/10 18:41:07 by sramos        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include "Weapon.hpp"
 
-Zombie *newZombie(std::string name){
-	Zombie *newZombie = new Zombie(name);
-	return (newZombie);
-}
+class HumanB
+{
+	private:
+		std::string name;
+		std::string weaponType;
+
+	public:
+		HumanB();
+		HumanB(std::string name);
+		~HumanB();
+
+		void	attack();
+		void	setWeapon(std::string type); //Type problem it should be an object from Weapon.
+};
