@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   HumanB.hpp                                         :+:    :+:            */
+/*   Zombie.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sramos <sramos@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/02/10 17:47:14 by sramos        #+#    #+#                 */
-/*   Updated: 2025/02/13 13:50:36 by sramos        ########   odam.nl         */
+/*   Created: 2025/02/07 18:34:17 by sramos        #+#    #+#                 */
+/*   Updated: 2025/02/13 17:55:17 by sramos        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Weapon.hpp"
+#include "Zombie.hpp"
 
-#pragma once
+Zombie::Zombie(std::string name){
+	this->name = name;
+	std::cout << "Zombie Constructor: " << this->name << std::endl;
+}
 
-class HumanB
-{
-	private:
-		std::string name;
-		Weapon* weaponType;
+Zombie::~Zombie(){
+	std::cout << "Zombie Destructor: " << this->name << std::endl;
+}
 
-	public:
-		HumanB();
-		HumanB(std::string name);
-		~HumanB();
-
-		void	attack();
-		void	setWeapon(Weapon& weaponType); 
-};
+void	Zombie::announce(){
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}

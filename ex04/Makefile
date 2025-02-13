@@ -6,18 +6,16 @@
 #    By: sramos <sramos@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/01/27 18:49:07 by sramos        #+#    #+#                  #
-#    Updated: 2025/02/13 13:46:45 by sramos        ########   odam.nl          #
+#    Updated: 2025/02/13 13:56:02 by sramos        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = weapon
+NAME = sed
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++11
 
 SRC = main.cpp\
-	HumanA.cpp\
-	HumanB.cpp\
-	Weapon.cpp
+	
 	
 
 OBJ = $(SRC:.cpp=.o)
