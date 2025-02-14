@@ -6,7 +6,7 @@
 #    By: sramos <sramos@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/01/27 18:49:07 by sramos        #+#    #+#                  #
-#    Updated: 2025/02/13 13:46:45 by sramos        ########   odam.nl          #
+#    Updated: 2025/02/14 17:50:22 by sramos        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@g++ $(CPPFLAGS) $(OBJ) -o $(NAME)
+		@c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 		@rm -rf $(OBJ)
