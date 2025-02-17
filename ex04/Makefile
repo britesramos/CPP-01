@@ -6,7 +6,7 @@
 #    By: sramos <sramos@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/01/27 18:49:07 by sramos        #+#    #+#                  #
-#    Updated: 2025/02/14 17:50:16 by sramos        ########   odam.nl          #
+#    Updated: 2025/02/17 18:05:28 by sramos        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,6 @@ NAME = sed
 CPPFLAGS = -Wall -Werror -Wextra -std=c++11
 
 SRC = main.cpp\
-	
-	
 
 OBJ = $(SRC:.cpp=.o)
 
