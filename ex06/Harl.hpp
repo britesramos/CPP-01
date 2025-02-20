@@ -6,7 +6,7 @@
 /*   By: sramos <sramos@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/17 15:45:56 by sramos        #+#    #+#                 */
-/*   Updated: 2025/02/17 17:39:46 by sramos        ########   odam.nl         */
+/*   Updated: 2025/02/20 13:41:16 by sramos        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,17 @@ class Harl
 		void warning();
 		void error();
 
-		
 	public:
 		Harl();
 		~Harl();
+
+		enum struct levels {
+			DEBUG,
+			INFO,
+			WARNING,
+			ERROR
+		};
+
+		levels		stoenum(std::string level);
 		void	complain(std::string level);
 };

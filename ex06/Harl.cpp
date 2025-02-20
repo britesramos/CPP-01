@@ -6,7 +6,7 @@
 /*   By: sramos <sramos@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/17 17:40:16 by sramos        #+#    #+#                 */
-/*   Updated: 2025/02/17 18:00:41 by sramos        ########   odam.nl         */
+/*   Updated: 2025/02/20 13:54:25 by sramos        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,30 @@ void Harl::error(){
 	std::cout << "ERROR" << std::endl;
 }
 
-void Harl::complain(std::string level){
+Harl::levels	Harl::stoenum(std::string level){
 	std::string array[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*funcPtr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
+	for (int i = 0; i < 4; ++i){
+		if (array[i] == level)
+			return static_cast<Harl::levels>(i);
+	}
+	return static_cast<Harl::levels>(-1);;
+}
+
+void Harl::complain(std::string level){
 	
-	for(int i = 0; i < 4; ++i){
-		if (array[i] == level){
-			while (i < 4){
-				(this->*funcPtr[i])();
-				++i;
-			}
-			return ;
-		}
+	switch (stoenum(level)){
+		case (Harl::levels::DEBUG):
+			this->debug();
+			// fallthrough
+		case (Harl::levels::INFO):
+			this->info();
+			// fallthrough
+		case (Harl::levels::WARNING):
+			this->warning();
+			// fallthrough
+		case (Harl::levels::ERROR):
+			this->error();
+			// fallthrough
 	}
 }
