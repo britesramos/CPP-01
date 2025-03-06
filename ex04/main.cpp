@@ -6,7 +6,7 @@
 /*   By: sramos <sramos@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/13 13:56:11 by sramos        #+#    #+#                 */
-/*   Updated: 2025/02/14 18:12:23 by sramos        ########   odam.nl         */
+/*   Updated: 2025/03/06 13:58:09 by sramos        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,13 @@ void	replace_method(std::ifstream& infile, std::fstream& outfile, std::string s1
 		start = line.find(s1, i);
 		while (start != std::string::npos){
 			new_line = line.substr(0, start) + s2;
-			if (start + s2.length() < line.length())
-				new_line += line.substr(start + s2.length() - 2);
-			i  = i + start + s2.length();
+			i = new_line.length();
+			if (start + s2.length() < line.length()){
+				if (s2.length() > s1.length())
+					new_line += line.substr(start + s2.length() - 1);
+				else
+					new_line += line.substr(start + s1.length());
+			}
 			line = new_line;
 			start = line.find(s1, i);
 		}
@@ -48,6 +52,10 @@ void	replace_method(std::ifstream& infile, std::fstream& outfile, std::string s1
 }
 
 int	main(int argc, char *argv[]){
+	if (argc != 4){
+		std::cout << "Please provide: <filename> <string1> <string2>." << std::endl;
+		exit (-1);
+	}
 	std::ifstream infile;
 	std::fstream outfile;
 	std::string	infile_path = argv[1];
@@ -64,16 +72,16 @@ int	main(int argc, char *argv[]){
 		if(!outfile){
 			std::cout << "Error: Couln't create outfile." << std::endl;
 		}
-		std::cout << "------------------INFILE BEFORE MY_REPLACE_METHOD------------------" << std::endl;
-		print_file(infile_path);
-		std::cout << "\n------------------OUTFILE BEFORE MY_REPLACE_METHOD------------------" << std::endl;
-		print_file(outfile_path);
+		// std::cout << "------------------INFILE BEFORE MY_REPLACE_METHOD------------------" << std::endl;
+		// print_file(infile_path);
+		// std::cout << "\n------------------OUTFILE BEFORE MY_REPLACE_METHOD------------------" << std::endl;
+		// print_file(outfile_path);
 		replace_method(infile, outfile, s1, s2);
-		std::cout << "\n------------------INFILE AFTER MY_REPLACE_METHOD------------------" << std::endl;
-		print_file(infile_path);
-		std::cout << "\n------------------OUTFILE AFTER MY_REPLACE_METHOD------------------" << std::endl;
-		print_file(outfile_path);
+		// std::cout << "\n------------------INFILE AFTER MY_REPLACE_METHOD------------------" << std::endl;
+		// print_file(infile_path);
+		// std::cout << "\n------------------OUTFILE AFTER MY_REPLACE_METHOD------------------" << std::endl;
+		// print_file(outfile_path);
 	}
 	else
-		std::cout << "Please provide: <filename> <string1> <string2>." << std::endl;
+		std::cout << "String1 and/or String2 is/are empty." << std::endl;
 }

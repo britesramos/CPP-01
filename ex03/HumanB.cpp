@@ -6,7 +6,7 @@
 /*   By: sramos <sramos@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/10 17:50:54 by sramos        #+#    #+#                 */
-/*   Updated: 2025/02/13 13:50:47 by sramos        ########   odam.nl         */
+/*   Updated: 2025/03/06 14:20:47 by sramos        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ HumanB::~HumanB(){
 }
 
 void HumanB::attack(){
-	std::cout << this->name << " attacks with their " << this->weaponType->getType() << std::endl;
+	if (this->weaponType != nullptr)
+		std::cout << this->name << " attacks with their " << this->weaponType->getType() << std::endl;
+	else
+		return;
 }
 
 void HumanB::setWeapon(Weapon& weaponType){

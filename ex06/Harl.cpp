@@ -6,7 +6,7 @@
 /*   By: sramos <sramos@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/17 17:40:16 by sramos        #+#    #+#                 */
-/*   Updated: 2025/02/20 13:54:25 by sramos        ########   odam.nl         */
+/*   Updated: 2025/03/06 13:07:58 by sramos        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ void Harl::complain(std::string level){
 		case (Harl::levels::ERROR):
 			this->error();
 			// fallthrough
+		default:
+			std::cout << "Couldn't find your complain in my list of complains." << std::endl;
 	}
 }
